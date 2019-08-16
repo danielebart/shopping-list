@@ -1,9 +1,11 @@
+import 'dart:collection';
+
 import 'package:flutter/foundation.dart';
 import 'package:quiver/core.dart';
 
 class ShoppingList with ChangeNotifier {
   // TODO fake list, to be replaced with a repository
-  List<ShoppingListItem> listItems = [
+  List<ShoppingListItem> _listItems = [
     ShoppingListItem("1", true, "test1"),
     ShoppingListItem("2", false, "test2"),
     ShoppingListItem("3", false, "test3"),
@@ -28,15 +30,18 @@ class ShoppingList with ChangeNotifier {
     ShoppingListItem("67", false, "testM"),
   ];
 
+  UnmodifiableListView<ShoppingListItem> get listItems =>
+      UnmodifiableListView(_listItems);
+
   setFlagged(String id, bool flagged) {
     final item = findByID(id);
-    final listItemIndex = listItems.indexOf(item);
-    listItems[listItemIndex] = ShoppingListItem(id, flagged, item.title);
+    final listItemIndex = _listItems.indexOf(item);
+    _listItems[listItemIndex] = ShoppingListItem(id, flagged, item.title);
     notifyListeners();
   }
 
   ShoppingListItem findByID(final String id) =>
-      listItems.firstWhere((ShoppingListItem item) => item.id == id);
+      _listItems.firstWhere((ShoppingListItem item) => item.id == id);
 }
 
 class ShoppingListItem {
