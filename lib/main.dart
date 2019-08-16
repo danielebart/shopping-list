@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:shopping_list/shopping_list.dart';
+import 'package:shopping_list/shopping_list_widget.dart';
 
 void main() => runApp(MyApp());
 
@@ -28,7 +28,7 @@ class MyHomePage extends StatelessWidget {
         title: Text('ShoppingList'),
       ),
       body: Center(
-        child: ShoppingList(),
+        child: ShoppingListWidget(),
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: <BottomNavigationBarItem>[
