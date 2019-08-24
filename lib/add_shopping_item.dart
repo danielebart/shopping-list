@@ -19,9 +19,7 @@ class AddItemWidgetState extends State<AddItemWidget> {
     super.initState();
     textController.addListener(() {
       setState(() {
-        addButtonEnabled = textController.text
-            .trim()
-            .isNotEmpty;
+        addButtonEnabled = textController.text.trim().isNotEmpty;
       });
     });
   }
@@ -50,7 +48,7 @@ class AddItemWidgetState extends State<AddItemWidget> {
             onPressed: addButtonEnabled ? _onAddButtonPressed : null,
             icon: Icon(
               Icons.add_circle,
-              color: addButtonEnabled ? Colors.purple : Colors.grey,
+              color: addButtonEnabled ? Colors.pink : Colors.grey,
             ),
           )
         ],

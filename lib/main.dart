@@ -14,7 +14,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
           title: 'ShoppingList',
           theme: ThemeData(
-              primarySwatch: Colors.purple,
+              primarySwatch: Colors.pink,
               scaffoldBackgroundColor: Colors.grey[50]),
           home: HomeScaffold()),
     );
@@ -26,7 +26,7 @@ class HomeScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('ShoppingList', style: TextStyle(color: Colors.purple)),
+        title: Text('ShoppingList', style: TextStyle(color: Colors.pink)),
         elevation: 0.0,
         backgroundColor: Colors.grey[50],
       ),
