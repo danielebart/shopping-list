@@ -28,6 +28,8 @@ class ShoppingListNotifier with ChangeNotifier {
   }
 
   addItem(String title) {
+    if (title.isEmpty) return;
+
     var uuid = new Uuid();
     var item = ShoppingListItem(
         id: uuid.v4(), listId: currentListId, title: title, flagged: false);

@@ -47,7 +47,7 @@ class HomeScaffold extends StatelessWidget {
             context: context,
             builder: (context) => AddItemWidget())),
         tooltip: 'Increment',
-        child: Icon(Icons.add),
+        child: Icon(Icons.add_shopping_cart),
       ),
     );
   }

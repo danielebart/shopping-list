@@ -12,6 +12,19 @@ class AddItemWidget extends StatefulWidget {
 
 class AddItemWidgetState extends State<AddItemWidget> {
   final textController = TextEditingController();
+  var addButtonEnabled = false;
+
+  @override
+  void initState() {
+    super.initState();
+    textController.addListener(() {
+      setState(() {
+        addButtonEnabled = textController.text
+            .trim()
+            .isNotEmpty;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,20 +47,21 @@ class AddItemWidgetState extends State<AddItemWidget> {
           IconButton(
             padding: EdgeInsets.all(16),
             iconSize: 40,
-            onPressed: () {
-              var provider =
-                  Provider.of<ShoppingListNotifier>(context, listen: false);
-              provider.addItem(textController.text);
-              Navigator.pop(context);
-            },
+            onPressed: addButtonEnabled ? _onAddButtonPressed : null,
             icon: Icon(
-              Icons.add_box,
-              color: Colors.purple,
+              Icons.add_circle,
+              color: addButtonEnabled ? Colors.purple : Colors.grey,
             ),
           )
         ],
       ),
     );
+  }
+
+  void _onAddButtonPressed() {
+    var provider = Provider.of<ShoppingListNotifier>(context, listen: false);
+    provider.addItem(textController.text);
+    Navigator.pop(context);
   }
 
   @override
