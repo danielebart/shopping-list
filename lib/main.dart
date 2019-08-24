@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:shopping_list/add_shopping_item.dart';
+import 'package:shopping_list/shopping_list_notifier.dart';
 import 'package:shopping_list/shopping_list_widget.dart';
 
 void main() => runApp(MyApp());
@@ -7,21 +9,19 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ShoppingList',
-      theme: ThemeData(
-        primarySwatch: Colors.purple,
-      ),
-      home: MyHomePage(title: 'ShoppingList'),
+    return ChangeNotifierProvider(
+      builder: (context) => ShoppingListNotifier(),
+      child: MaterialApp(
+          title: 'ShoppingList',
+          theme: ThemeData(
+            primarySwatch: Colors.purple,
+          ),
+          home: HomeScaffold()),
     );
   }
 }
 
-class MyHomePage extends StatelessWidget {
-  MyHomePage({Key key, this.title}) : super(key: key);
-
-  final String title;
-
+class HomeScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

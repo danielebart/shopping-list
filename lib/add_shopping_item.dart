@@ -1,7 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:shopping_list/shopping_list_notifier.dart';
 
-class AddItemWidget extends StatelessWidget {
+class AddItemWidget extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return AddItemWidgetState();
+  }
+}
+
+class AddItemWidgetState extends State<AddItemWidget> {
+  final textController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -12,6 +23,7 @@ class AddItemWidget extends StatelessWidget {
         children: <Widget>[
           TextField(
             maxLines: null,
+            controller: textController,
             keyboardType: TextInputType.multiline,
             decoration: InputDecoration(
                 contentPadding:
@@ -22,7 +34,11 @@ class AddItemWidget extends StatelessWidget {
           IconButton(
             padding: EdgeInsets.all(16),
             iconSize: 40,
-            onPressed: () {},
+            onPressed: () {
+              var provider =
+              Provider.of<ShoppingListNotifier>(context, listen: false);
+              provider.addItem(textController.text);
+            },
             icon: Icon(
               Icons.add_box,
               color: Colors.purple,
@@ -31,5 +47,11 @@ class AddItemWidget extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    textController.dispose();
+    super.dispose();
   }
 }

@@ -1,22 +1,21 @@
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_list/shopping_item_widget.dart';
-import 'package:shopping_list/shopping_list.dart';
+import 'package:shopping_list/shopping_list_notifier.dart';
 
 class ShoppingListWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      builder: (context) => ShoppingList(),
-      child: _buildListView(context),
-    );
-  }
-
-  Widget _buildListView(BuildContext context) {
-    return Consumer<ShoppingList>(
-        builder: (context, shoppingList, _) => ListView.builder(
-            itemCount: shoppingList.listItems.length,
-            itemBuilder: (context, position) =>
-                ShoppingItemWidget(shoppingList.listItems[position].id)));
+    return Consumer<ShoppingListNotifier>(builder: (context, shoppingList, _) {
+      return StreamBuilder<ShoppingList>(
+          stream: shoppingList.list,
+          builder: (context, AsyncSnapshot<ShoppingList> snapshot) {
+            return ListView.builder(
+                itemCount: snapshot.data.items.length,
+                itemBuilder: (context, position) {
+                  return ShoppingItemWidget(snapshot.data.items[position].id);
+                });
+          });
+    });
   }
 }
