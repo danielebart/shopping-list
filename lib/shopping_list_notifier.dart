@@ -39,6 +39,11 @@ class ShoppingListNotifier with ChangeNotifier {
     notifyListeners();
   }
 
+  removeItem(String id) {
+    _inMemoryShoppingList?.items?.removeWhere((item) => item.id == id);
+    shoppingListRepository.remove(id);
+  }
+
   setFlagged(String id, bool flagged) {
     final item = findByID(id);
     final listItemIndex = _inMemoryShoppingList.items.indexOf(item);

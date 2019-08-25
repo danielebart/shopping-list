@@ -50,7 +50,7 @@ class ShoppingListDBRepository extends ShoppingListRepository {
 
     await db.delete(
       "shopping_list_item",
-      where: "id = ?",
+      where: "item_id = ?",
       whereArgs: [itemId],
     );
   }
