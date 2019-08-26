@@ -1,5 +1,4 @@
 import 'package:flutter/foundation.dart';
-import 'package:uuid/uuid.dart';
 
 import '../shopping_list.dart';
 import '../shopping_list_item.dart';
@@ -27,15 +26,8 @@ class ShoppingListNotifier with ChangeNotifier {
     }
   }
 
-  addItem(String title) {
-    if (title.isEmpty) return;
-
-    var uuid = new Uuid();
-    var item = ShoppingListItem(
-        id: uuid.v4(), listId: currentListId, title: title, flagged: false);
-
+  onItemAdded(ShoppingListItem item) {
     _inMemoryShoppingList?.items?.add(item);
-    shoppingListRepository.add(item);
     notifyListeners();
   }
 

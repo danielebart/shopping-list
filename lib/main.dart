@@ -50,10 +50,12 @@ class HomeScaffold extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (() => showModalBottomSheet(
-            isScrollControlled: true,
-            context: context,
-            builder: (context) => AddItemWidget())),
-        tooltip: 'Increment',
+                isScrollControlled: true,
+                context: context,
+                builder: (context) => AddItemWidget()).then((value) {
+              var provider = Provider.of<ShoppingListNotifier>(context);
+              return provider.onItemAdded(value);
+            })),
         child: Icon(Icons.add_shopping_cart),
       ),
     );

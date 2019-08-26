@@ -11,7 +11,7 @@ class ShoppingItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final shoppingList =
-    Provider.of<ShoppingListNotifier>(context, listen: false);
+        Provider.of<ShoppingListNotifier>(context, listen: false);
     return _buildCheckbox(shoppingList);
   }
 
