@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_list/shopping_list/items/shopping_list_notifier.dart';
+import 'package:shopping_list/shopping_list/items/shopping_list_provider.dart';
 
 class ShoppingItemWidget extends StatelessWidget {
   final String itemID;
@@ -11,11 +11,11 @@ class ShoppingItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final shoppingList =
-        Provider.of<ShoppingListNotifier>(context, listen: false);
+    Provider.of<ShoppingListProvider>(context, listen: false);
     return _buildCheckbox(shoppingList);
   }
 
-  Widget _buildCheckbox(ShoppingListNotifier shoppingList) {
+  Widget _buildCheckbox(ShoppingListProvider shoppingList) {
     final listItem = shoppingList.findByID(itemID);
     return CheckboxListTile(
       title: listItem.flagged

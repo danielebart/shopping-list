@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_list/shopping_list/add_item/add_shopping_item_widget.dart';
-import 'package:shopping_list/shopping_list/items/shopping_list_notifier.dart';
+import 'package:shopping_list/shopping_list/items/shopping_list_provider.dart';
+import 'package:shopping_list/shopping_list/items/shopping_list_provider_impl.dart';
 import 'package:shopping_list/shopping_list/items/shopping_list_widget.dart';
 
 import 'common_injector.dart';
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(
       builder: (context) =>
-          Injector.appInstance.getDependency<ShoppingListNotifier>(),
+          Injector.appInstance.getDependency<ShoppingListProvider>(),
       child: MaterialApp(
           title: 'ShoppingList',
           theme: ThemeData(
@@ -50,12 +51,12 @@ class HomeScaffold extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: (() => showModalBottomSheet(
-                isScrollControlled: true,
-                context: context,
-                builder: (context) => AddItemWidget()).then((value) {
-              var provider = Provider.of<ShoppingListNotifier>(context);
-              if (value != null) provider.onItemAdded(value);
-            })),
+            isScrollControlled: true,
+            context: context,
+            builder: (context) => AddItemWidget()).then((value) {
+          var provider = Provider.of<ShoppingListProviderImpl>(context);
+          if (value != null) provider.onItemAdded(value);
+        })),
         child: Icon(Icons.add_shopping_cart),
       ),
     );

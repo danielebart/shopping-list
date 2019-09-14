@@ -1,17 +1,21 @@
 import 'package:flutter/foundation.dart';
+import 'package:shopping_list/shopping_list/items/shopping_list_provider.dart';
 
 import '../shopping_list.dart';
 import '../shopping_list_item.dart';
 import '../shopping_list_repository.dart';
 
-class ShoppingListNotifier with ChangeNotifier {
+class ShoppingListProviderImpl
+    with ChangeNotifier
+    implements ShoppingListProvider {
   String currentListId = "0"; // TODO add logic for multiple lists
   final ShoppingListRepository
   _shoppingListRepository; // TODO move it in a interactor
   ShoppingList _inMemoryShoppingList; // TODO move it in a interactor
 
-  ShoppingListNotifier(this._shoppingListRepository);
+  ShoppingListProviderImpl(this._shoppingListRepository);
 
+  @override
   Stream<ShoppingList> get list {
     if (_inMemoryShoppingList == null) {
       return _shoppingListRepository
@@ -27,6 +31,7 @@ class ShoppingListNotifier with ChangeNotifier {
     }
   }
 
+  @override
   onItemAdded(ShoppingListItem item) {
     if (_inMemoryShoppingList == null) {
       _inMemoryShoppingList = ShoppingList(currentListId, []);
@@ -35,11 +40,13 @@ class ShoppingListNotifier with ChangeNotifier {
     notifyListeners();
   }
 
+  @override
   removeItem(String id) {
     _inMemoryShoppingList.items?.removeWhere((item) => item.id == id);
     _shoppingListRepository.remove(id);
   }
 
+  @override
   setFlagged(String id, bool flagged) {
     final oldItem = findByID(id);
     final listItemIndex = _inMemoryShoppingList.items.indexOf(oldItem);
@@ -52,6 +59,7 @@ class ShoppingListNotifier with ChangeNotifier {
     notifyListeners();
   }
 
+  @override
   ShoppingListItem findByID(final String id) => _inMemoryShoppingList.items
       .firstWhere((ShoppingListItem item) => item.id == id);
 }
