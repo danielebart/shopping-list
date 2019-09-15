@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'add_item/add_shopping_item_widget.dart';
-import 'items/shopping_list_provider.dart';
-import 'items/shopping_list_widget.dart';
+import 'manage_shopping_list/add_item/add_shopping_item_widget.dart';
+import 'manage_shopping_list/items/shopping_list_provider.dart';
+import 'manage_shopping_list/items/shopping_list_widget.dart';
 
 class HomeScaffold extends StatelessWidget {
   @override

@@ -1,6 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:quiver/core.dart';
-import 'package:shopping_list/shopping_list/shopping_list_item.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/shopping_list_item.dart';
 
 class ShoppingList {
   final String id;

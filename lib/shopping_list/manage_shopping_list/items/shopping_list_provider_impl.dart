@@ -1,9 +1,9 @@
 import 'package:flutter/foundation.dart';
-import 'package:shopping_list/shopping_list/items/shopping_list_provider.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/items/shopping_list_provider.dart';
 
 import '../shopping_list.dart';
 import '../shopping_list_item.dart';
-import '../shopping_list_repository.dart';
+import 'shopping_list_repository.dart';
 
 class ShoppingListProviderImpl
     with ChangeNotifier

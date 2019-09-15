@@ -2,9 +2,9 @@ import 'dart:io';
 
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:shopping_list/shopping_list/db/shopping_list_db_repository.dart';
-import 'package:shopping_list/shopping_list/shopping_list.dart';
-import 'package:shopping_list/shopping_list/shopping_list_item.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/db/shopping_list_db_repository.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/shopping_list.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/shopping_list_item.dart';
 
 // TODO this must be refactored and find a cleaner way to write those kind of tests
 void main() {

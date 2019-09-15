@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:uuid/uuid.dart';
 
+import '../items/shopping_list_repository.dart';
 import '../shopping_list_item.dart';
-import '../shopping_list_repository.dart';
 import 'add_item_provider.dart';
 
 class AddItemProviderImpl with ChangeNotifier implements AddItemProvider {

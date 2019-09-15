@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:injector/injector.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_list/shopping_list/home_scaffold.dart';
-import 'package:shopping_list/shopping_list/items/shopping_list_provider.dart';
 
 import 'common_injector.dart';
+import 'manage_shopping_list/items/shopping_list_provider.dart';
 
 void main() {
   registerCommonDependencies();

@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import '../shopping_list_item.dart';
 
 abstract class AddItemProvider with ChangeNotifier {
+
   AddItemState get state;
 
   addButtonPressed();
