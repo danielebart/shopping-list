@@ -9,13 +9,16 @@ import 'package:shopping_list/shopping_list/add_item/add_shopping_item_widget.da
 import 'package:shopping_list/shopping_list/items/shopping_list_provider.dart';
 import 'package:shopping_list/shopping_list/shopping_list_item.dart';
 
+import 'MockAddItemProvider.dart';
+import 'MockShoppingListProvider.dart';
+
 void main() {
   testWidgets('when pressing the add item button then show the add item widget',
           (WidgetTester tester) async {
         Injector injector = Injector.appInstance;
-        var addItemProviderMock = _MockAddItemProvider();
+        var addItemProviderMock = MockAddItemProvider();
         injector.registerDependency<ShoppingListProvider>((injector) {
-          return _MockShoppingListProvider();
+          return MockShoppingListProvider();
         });
         injector.registerDependency<AddItemProvider>((injector) {
           return addItemProviderMock;
@@ -32,9 +35,9 @@ void main() {
       'given AddItemDisabled state when opening the add sheet then '
           'the add button is disabled', (WidgetTester tester) async {
     Injector injector = Injector.appInstance;
-    var addItemProviderMock = _MockAddItemProvider();
+    var addItemProviderMock = MockAddItemProvider();
     injector.registerDependency<ShoppingListProvider>((injector) {
-      return _MockShoppingListProvider();
+      return MockShoppingListProvider();
     });
     injector.registerDependency<AddItemProvider>((injector) {
       return addItemProviderMock;
@@ -57,9 +60,9 @@ void main() {
       'given AddItemDisabled state when opening the add sheet then the add '
           'button is disabled', (WidgetTester tester) async {
     Injector injector = Injector.appInstance;
-    var addItemProviderMock = _MockAddItemProvider();
+    var addItemProviderMock = MockAddItemProvider();
     injector.registerDependency<ShoppingListProvider>((injector) {
-      return _MockShoppingListProvider();
+      return MockShoppingListProvider();
     });
     injector.registerDependency<AddItemProvider>((injector) {
       return addItemProviderMock;
@@ -82,9 +85,9 @@ void main() {
       'given AddItemEnabled state when clicking on add button'
           ' then verify button press call', (WidgetTester tester) async {
     Injector injector = Injector.appInstance;
-    var addItemProviderMock = _MockAddItemProvider();
+    var addItemProviderMock = MockAddItemProvider();
     injector.registerDependency<ShoppingListProvider>((injector) {
-      return _MockShoppingListProvider();
+      return MockShoppingListProvider();
     });
     injector.registerDependency<AddItemProvider>((injector) {
       return addItemProviderMock;
@@ -106,9 +109,9 @@ void main() {
       'given AddItemEnabled state when typing text'
           ' then verify typing text changed call', (WidgetTester tester) async {
     Injector injector = Injector.appInstance;
-    var addItemProviderMock = _MockAddItemProvider();
+    var addItemProviderMock = MockAddItemProvider();
     injector.registerDependency<ShoppingListProvider>((injector) {
-      return _MockShoppingListProvider();
+      return MockShoppingListProvider();
     });
     injector.registerDependency<AddItemProvider>((injector) {
       return addItemProviderMock;
@@ -130,8 +133,8 @@ void main() {
           'added item to the ShoppingListProvider', (
       WidgetTester tester) async {
     Injector injector = Injector.appInstance;
-    var addItemProviderMock = _MockAddItemProvider();
-    var shoppingListProviderMock = _MockShoppingListProvider();
+    var addItemProviderMock = MockAddItemProvider();
+    var shoppingListProviderMock = MockShoppingListProvider();
     injector.registerDependency<ShoppingListProvider>((injector) {
       return shoppingListProviderMock;
     });
@@ -155,11 +158,3 @@ void main() {
     injector.clearAll();
   });
 }
-
-class _MockShoppingListProvider extends Mock
-    with ChangeNotifier
-    implements ShoppingListProvider {}
-
-class _MockAddItemProvider extends Mock
-    with ChangeNotifier
-    implements AddItemProvider {}
