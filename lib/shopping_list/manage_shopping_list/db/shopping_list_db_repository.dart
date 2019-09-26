@@ -1,8 +1,8 @@
 import "package:path/path.dart";
+import 'package:shopping_list/shopping_list/manage_shopping_list/current_shopping_list/shopping_list_repository.dart';
 import 'package:shopping_list/shopping_list/manage_shopping_list/db/shopping_item_db.dart';
 import "package:sqflite/sqflite.dart";
 
-import '../items/shopping_list_repository.dart';
 import '../shopping_list.dart';
 import '../shopping_list_item.dart';
 

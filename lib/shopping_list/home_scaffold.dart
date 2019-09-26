@@ -4,8 +4,8 @@ import 'package:provider/provider.dart';
 
 import 'manage_shopping_list/add_item/add_shopping_item_widget.dart';
 import 'manage_shopping_list/archive/archive_list_widget.dart';
-import 'manage_shopping_list/items/shopping_list_provider.dart';
-import 'manage_shopping_list/items/shopping_list_widget.dart';
+import 'manage_shopping_list/current_shopping_list/shopping_list_provider.dart';
+import 'manage_shopping_list/current_shopping_list/shopping_list_widget.dart';
 
 class HomeScaffold extends StatefulWidget {
   @override

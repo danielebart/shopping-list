@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/current_shopping_list/shopping_list_repository.dart';
 import 'package:uuid/uuid.dart';
 
-import '../items/shopping_list_repository.dart';
 import '../shopping_list_item.dart';
 import 'add_item_provider.dart';
 

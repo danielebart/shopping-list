@@ -4,9 +4,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:shopping_list/shopping_list/manage_shopping_list/items/shopping_item_widget.dart';
-import 'package:shopping_list/shopping_list/manage_shopping_list/items/shopping_list_provider.dart';
-import 'package:shopping_list/shopping_list/manage_shopping_list/items/shopping_list_widget.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/current_shopping_list/shopping_item_widget.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/current_shopping_list/shopping_list_provider.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/current_shopping_list/shopping_list_widget.dart';
 import 'package:shopping_list/shopping_list/manage_shopping_list/shopping_list.dart';
 import 'package:shopping_list/shopping_list/manage_shopping_list/shopping_list_item.dart';
 

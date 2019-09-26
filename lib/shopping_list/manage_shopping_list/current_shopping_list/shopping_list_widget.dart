@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
-import 'package:shopping_list/shopping_list/manage_shopping_list/items/shopping_item_widget.dart';
-import 'package:shopping_list/shopping_list/manage_shopping_list/items/shopping_list_provider.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/current_shopping_list/shopping_item_widget.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/current_shopping_list/shopping_list_provider.dart';
 
 import '../shopping_list.dart';
 

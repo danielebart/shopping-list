@@ -1,5 +1,5 @@
 import 'package:flutter/foundation.dart';
-import 'package:shopping_list/shopping_list/manage_shopping_list/items/shopping_list_provider.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/current_shopping_list/shopping_list_provider.dart';
 
 import '../shopping_list.dart';
 import '../shopping_list_item.dart';
