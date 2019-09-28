@@ -48,10 +48,13 @@ class _ArchiveShoppingItemWidget extends StatelessWidget {
           SizedBox(
             width: 8,
           ),
-          Text(
-            shoppingListItem.title,
-            maxLines: 1,
-            style: TextStyle(fontWeight: FontWeight.bold),
+          Flexible(
+            child: Text(
+              shoppingListItem.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(fontWeight: FontWeight.bold),
+            ),
           )
         ],
       ),
@@ -60,6 +63,6 @@ class _ArchiveShoppingItemWidget extends StatelessWidget {
 
   Color _generateRandomColor() {
     return Colors
-        .accents[shoppingListItem.hashCode % Colors.accents.length];
+        .primaries[shoppingListItem.hashCode % Colors.primaries.length];
   }
 }
