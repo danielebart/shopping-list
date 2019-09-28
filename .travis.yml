@@ -8,8 +8,10 @@ jobs:
       name: "Test"
       if: type = push OR type = pull_request
       before_script:
-        - git clone https://github.com/flutter/flutter.git --depth 1
-      script: ./flutter/bin/flutter test
+        - git clone -b stable https://github.com/flutter/flutter.git --depth 1
+      script:
+        - ./flutter/bin/flutter doctor -v
+        - ./flutter/bin/flutter test
     - stage: deploy
       name: "Release"
       script: ./flutter/bin/flutter -v build apk
@@ -45,7 +47,7 @@ jobs:
         - unzip -qq gradle-4.10.2-all.zip
         - export GRADLE_HOME=$PWD/gradle-4.10.2-all
         - export PATH=$GRADLE_HOME/bin:$PATH
-        - git clone https://github.com/flutter/flutter.git --depth 1
+        - git clone -b stable https://github.com/flutter/flutter.git --depth 1
       before_deploy:
         - git config --local user.name "Daniele Bartorilla"
         - git config --local user.email "danielebartorilla@gmail.com"
