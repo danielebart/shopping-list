@@ -17,7 +17,7 @@ registerCommonDependencies() {
     return ShoppingListDBRepository();
   });
 
-  injector.registerDependency<ShoppingListProvider>((injector) {
+  injector.registerSingleton<ShoppingListProvider>((injector) {
     var shoppingListRepository =
     injector.getDependency<ShoppingListRepository>();
     return ShoppingListProviderImpl(shoppingListRepository);
@@ -25,7 +25,7 @@ registerCommonDependencies() {
 
   injector.registerDependency<AddItemProvider>((injector) {
     var currentListId = injector.getDependency<String>(
-        dependencyName: "current_shopping_list_id");
+        dependencyName: CURRENT_SHOPPING_LIST_ID);
     var shoppingListRepository =
     injector.getDependency<ShoppingListRepository>();
     return AddItemProviderImpl(shoppingListRepository, currentListId);
@@ -40,5 +40,7 @@ registerCommonDependencies() {
   injector.registerDependency<String>((injector) {
     var listNotifier = injector.getDependency<ShoppingListProvider>();
     return listNotifier.currentListId;
-  }, override: true, dependencyName: "current_shopping_list_id");
+  }, override: true, dependencyName: CURRENT_SHOPPING_LIST_ID);
 }
+
+const CURRENT_SHOPPING_LIST_ID = "current_shopping_list_id";

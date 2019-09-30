@@ -15,6 +15,7 @@ class ShoppingListDBRepository extends ShoppingListRepository {
     _insertShoppingListItem(ShoppingItemDB(
         itemId: item.id,
         shoppingListId: item.listId,
+        timestamp: item.timestamp,
         flagged: item.flagged,
         title: item.title));
   }
@@ -26,6 +27,9 @@ class ShoppingListDBRepository extends ShoppingListRepository {
       _SHOPPING_LIST_ITEMS_DB_NAME,
       item.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
+    ).catchError((err) {
+      print(err);
+    }
     );
   }
 
@@ -100,6 +104,7 @@ class ShoppingListDBRepository extends ShoppingListRepository {
             "item_id TEXT PRIMARY KEY, "
             "shopping_list_id TEXT, "
             "title TEXT, "
+            "timestamp INTEGER, "
             "flagged INTEGER)");
       },
       version: 1,

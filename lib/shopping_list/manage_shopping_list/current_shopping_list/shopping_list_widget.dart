@@ -21,7 +21,8 @@ class ShoppingListWidget extends StatelessWidget {
                     return Dismissible(
                         key: Key(id),
                         onDismissed: (direction) => shoppingList.removeItem(id),
-                        child: ShoppingItemWidget(id));
+                        child: ShoppingItemWidget(
+                            items.firstWhere((i) => i.id == id)));
                   });
             }
 

@@ -21,7 +21,7 @@ class ArchiveListWidget extends StatelessWidget {
             mainAxisSpacing: 16.0,
             crossAxisSpacing: 16.0,
             itemBuilder: (context, position) {
-              return ArchiveItemWidget(snapshot.data[0]);
+              return ArchiveItemWidget(snapshot.data[position]);
             },
             staggeredTileBuilder: (int index) => StaggeredTile.fit(1),
           );

@@ -25,6 +25,9 @@ class AddItemProviderImpl with ChangeNotifier implements AddItemProvider {
         id: uuid.v4(),
         listId: _currentListID,
         title: _currentText,
+        timestamp: DateTime
+            .now()
+            .millisecondsSinceEpoch,
         flagged: false);
     _shoppingListRepository.add(item);
     _state = AddItemSuccess(item);

@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 import 'package:shopping_list/shopping_list/manage_shopping_list/current_shopping_list/shopping_list_provider.dart';
+import 'package:shopping_list/shopping_list/manage_shopping_list/shopping_list_item.dart';
 
 class ShoppingItemWidget extends StatelessWidget {
-  final String itemID;
+  final ShoppingListItem item;
 
-  ShoppingItemWidget(this.itemID);
+  ShoppingItemWidget(this.item);
 
   @override
   Widget build(BuildContext context) {
@@ -16,16 +17,15 @@ class ShoppingItemWidget extends StatelessWidget {
   }
 
   Widget _buildCheckbox(ShoppingListProvider shoppingList) {
-    final listItem = shoppingList.findByID(itemID);
     return CheckboxListTile(
-      title: listItem.flagged
-          ? Text(listItem.title,
+      title: item.flagged
+          ? Text(item.title,
               style: TextStyle(decoration: TextDecoration.lineThrough))
-          : Text(listItem.title),
+          : Text(item.title),
       controlAffinity: ListTileControlAffinity.leading,
-      value: listItem.flagged,
+      value: item.flagged,
       onChanged: (bool value) {
-        shoppingList.setFlagged(itemID, value);
+        shoppingList.setFlagged(item.id, value);
       },
     );
   }
