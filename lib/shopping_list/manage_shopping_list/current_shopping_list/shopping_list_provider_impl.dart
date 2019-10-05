@@ -38,7 +38,8 @@ class ShoppingListProviderImpl
         ?.listId ??
         _currentTimestamp().toString();
     _inMemoryShoppingList = lists.singleWhere(
-            (ShoppingList list) => list.id == currentListId,
+            (ShoppingList list) =>
+        list.id == currentListId && list.items.any((i) => !i.flagged),
         orElse: () => ShoppingList(currentListId, []));
   }
 
