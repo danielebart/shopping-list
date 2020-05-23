@@ -40,9 +40,9 @@ class _HomeScaffoldState extends State<HomeScaffold>
           currentIndex: _currentIndex,
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-                icon: Icon(Icons.list), title: Text('lista corrente')),
+                icon: Icon(Icons.list), title: Text('Current List')),
             BottomNavigationBarItem(
-                icon: Icon(Icons.archive), title: Text('Archivio'))
+                icon: Icon(Icons.archive), title: Text('Archive'))
           ],
           onTap: (index) {
             setState(() => _currentIndex = index);

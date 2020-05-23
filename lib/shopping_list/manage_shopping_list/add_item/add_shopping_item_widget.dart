@@ -43,7 +43,7 @@ class AddItemWidgetState extends State<AddItemWidget> {
                   contentPadding:
                       EdgeInsets.only(left: 16, top: 16, right: 16, bottom: 16),
                   border: InputBorder.none,
-                  hintText: 'Biscotti allo zenzero...'),
+                  hintText: 'Ginger biscuits...'),
             ),
             IconButtonWidget()
           ],
